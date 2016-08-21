@@ -1,0 +1,13 @@
+<header>
+    <h1 class="logo"><span>アプリ名</span></h1>
+    <ul class="gnav">
+        <li><%= link_to 'ホーム', root_path %></li>
+        <li><%= link_to 'ユーザー選択', '#' %></li>
+        <li><%= link_to '家族登録', new_user_path %></li>
+        <li><%= link_to '通院記録', '#' %></li>
+        <li><%= link_to '病院登録', '#' %></li>
+        <li><%= link_to '病院一覧', '#' %></li>
+    </ul>
+    <div class="logout">
+    <p class="btn btn-primary"><%= link_to 'ログアウト', destroy_family_session_path, method: :delete %></p></div>
+</header>

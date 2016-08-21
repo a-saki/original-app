@@ -1,0 +1,96 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "normalize";
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+
+body {
+   font-family: 'Noto Sans Japanese', sans-serif;
+   font-size: 62.5%;
+}
+body,a {
+  color: #333;
+}
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  font-size: 1.4rem;
+  // border-right: 1px solid #333;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px 1px rgba(0,0,0,.06);
+  -moz-box-shadow: 0 1px 3px 1px rgba(0,0,0,.06);
+  box-shadow: 0 1px 3px 1px rgba(0,0,0,.06);
+  .logo {
+    text-align: center;
+    font-size: 2.5rem;
+    color:#ffa500;
+    font-weight: 700;
+   
+    span {
+      display: inline-block;
+       padding: 15px;
+    border: 1px solid #ffa500;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    }
+  }
+  .logout {
+    text-align: center;
+  }
+}
+.gnav {
+  width: 100%;
+  li {
+    border-bottom: 1px solid #fff;
+    a {
+      text-align: center;
+      border-right: 5px solid #fff;
+      display: block;
+      padding: 15px 5px 15px 15px;
+      font-weight: 600;
+      &:hover {
+        border-right: 5px solid #ffa500;
+        color: #ffa500;
+      }
+    }
+  }
+}
+
+
+
+.main-col {
+  position: relative;
+  max-width: 900px;
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+.mod-ttl {
+  text-align: center;
+}
+.mod-select {
+  width: 500px;
+  margin: 0 auto;
+}
+.mod-label {
+  margin-right: 15px;
+}
+label {
+  font-size: 12px;
+}
+.btn-primary {
+  a {
+      color: #fff;
+  }
+}
+.form-inline.remember {
+  text-align: center;
+}

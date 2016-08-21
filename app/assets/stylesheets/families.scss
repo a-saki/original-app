@@ -1,0 +1,28 @@
+// Place all the styles related to the families controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.new_family {
+  width: 700px;
+  margin: 0 auto;
+  .row {
+    margin-top: 15px;
+  }
+}
+
+.actions {
+  margin-top: 30px;
+  text-align: center;
+}
+.mod-ttl {
+  margin-bottom: 50px;
+}
+.devise-mod-link {
+  text-align: right;
+  a {
+    font-size: 1.2rem;
+    display: inline-block;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

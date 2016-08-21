@@ -1,0 +1,33 @@
+<%= render "devise/shared/links" %>
+<h2 class="mod-ttl">ログイン</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="row">
+  <div class="form-inline">
+    <%= f.label :email, class: "mod-label col-md-4" %>
+    <%= f.email_field :email, autofocus: true, class: "form-control col-md-4" %>
+  </div>
+  </div>
+
+ <div class="row">
+  <div class="form-inline">
+    <%= f.label :password, class: "mod-label col-md-4" %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control col-md-4" %>
+  </div>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+      <div class="row">
+    <div class="form-inline remember">
+      <%= f.check_box :remember_me, class: "mod-label" %>
+      <%= f.label 'ログイン情報を記憶', class: "" %>
+    </div>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "ログイン", class: "btn btn-default" %>
+  </div>
+<% end %>
+
+
