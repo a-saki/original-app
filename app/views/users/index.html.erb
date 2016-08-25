@@ -1,0 +1,21 @@
+<h2 class="mod-ttl">家族登録</h2>
+<%= form_for(@user, remote: true) do |f| %>
+<div class="form-inline">
+  <%= f.text_field :name, class: "form-control", placeholder: '名前を入力してください' %>
+  <%= f.text_field :relationship, class: "form-control", placeholder: '続柄' %>
+  <%= f.select(:age, {'女性' => 1, '男性' => 2}, {}, { class: 'form-control'}) %>
+  <%= f.submit '登録', class: "btn btn-warning" %>
+</div>
+
+<div class="wrp-family-lists">
+  <h2 class="mod-ttl">家族リスト</h2>
+  <ul class="family-lists">
+    <!-- 家族表示しておく -->
+    <% @users.each do |user|%>
+    <%= user.name %>
+    <%= link_to "削除", user_path(user), method: :delete,remote: :true %>
+    <br>
+    <% end %>
+  </ul>
+</div>
+<% end %>
