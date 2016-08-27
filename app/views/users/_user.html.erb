@@ -1,1 +1,15 @@
-<li><%= user.name %><%= link_to "削除", user_path(user), method: :delete,remote: :true %></li>
+<li>
+  <div class="user-id<%= user.id%> user-table">
+    <p class="f-name"><%= user.name %></p>
+    <p class="f-relationship"><%= user.relationship %></p>
+    <p class="f-gender">
+      <% if(user.gender === 1) %>
+      女性
+      <% elsif(user.gender === 2) %>
+      男性
+      <% end %>
+    </p>
+    <p class="f-btn"><%= link_to "編集", edit_user_path(user), remote: :true, class: "btn btn-warning" %></p>
+    <p class="f-btn"><%= link_to "削除", user_path(user), method: :delete,remote: :true, class: "btn btn-primary" %></p>
+  </div>
+</li>

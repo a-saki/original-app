@@ -1,0 +1,7 @@
+<%= form_for(@user, remote: true) do |f| %>
+  <p class="f-name"><%= f.text_field :name, class: "form-control" %></p>
+  <p class="f-relationship"><%= f.text_field :relationship, class: "form-control" %></p>
+  <p class="f-gender"><%= f.select(:gender, {'女性' => 1, '男性' => 2}, {}, { class: 'form-control'}) %></p>
+  <p class="f-btn"><%= f.submit '登録', class: "btn btn-warning" %></p>
+  <p class="f-btn"><%= link_to "削除", user_path(@user), method: :delete,remote: :true, class: "btn btn-primary" %></p>
+<% end %>

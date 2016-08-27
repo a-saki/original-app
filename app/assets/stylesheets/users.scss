@@ -13,7 +13,53 @@
   }
 }
 
+// 家族登録一覧部分
 .wrp-family-lists {
   margin-top: 80px;
   border-top: 1px solid #e8e8e8;
+}
+.wrp-family-table,#new_user {
+  width: 800px;
+  margin: 0 auto;
+}
+.thead,.user-table {
+  box-sizing: border-box;
+  display: table;
+  width: 100%;
+  p {
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .f-name {
+    width: 350px;
+  }
+  .f-relationship {
+    width: 150px;
+  }
+  .f-gender {
+    width: 50px;
+  }
+  .f-btn {
+    width: 75px;
+  }
+}
+.thead {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+
+.user-table {
+  form {
+    box-sizing: border-box;
+    display: table;
+    width: 100%;
+  }
+  .btn-warning {
+    color: #fff !important;
+  }
 }

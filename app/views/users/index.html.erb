@@ -3,19 +3,39 @@
 <div class="form-inline">
   <%= f.text_field :name, class: "form-control", placeholder: '名前を入力してください' %>
   <%= f.text_field :relationship, class: "form-control", placeholder: '続柄' %>
-  <%= f.select(:age, {'女性' => 1, '男性' => 2}, {}, { class: 'form-control'}) %>
+  <%= f.select(:gender, {'女性' => 1, '男性' => 2}, {}, { class: 'form-control'}) %>
   <%= f.submit '登録', class: "btn btn-warning" %>
 </div>
+<% end %>
 
 <div class="wrp-family-lists">
   <h2 class="mod-ttl">家族リスト</h2>
-  <ul class="family-lists">
-    <!-- 家族表示しておく -->
-    <% @users.each do |user|%>
-    <%= user.name %>
-    <%= link_to "削除", user_path(user), method: :delete,remote: :true %>
-    <br>
-    <% end %>
-  </ul>
+  <div class="wrp-family-table">
+    <div class="thead">
+      <p class="f-name">名前</p>
+      <p class="f-relationship">続柄</p>
+      <p class="f-gender">性別</p>
+      <p class="f-btn"></p>
+      <p class="f-btn"></p>
+    </div>
+    <ul class="family-lists">
+        <% @users.each do |user|%>
+      <li>
+        <div class="user-id<%= user.id%> user-table">
+        <p class="f-name"><%= user.name %></p>
+        <p class="f-relationship"><%= user.relationship %></p>
+        <p class="f-gender">
+          <% if(user.gender === 1) %>
+          女性
+          <% elsif(user.gender === 2) %>
+          男性
+          <% end %>
+        </p>
+        <p class="f-btn"><%= link_to "編集", edit_user_path(user), remote: :true, class: "btn btn-warning" %></p>
+        <p class="f-btn"><%= link_to "削除", user_path(user), method: :delete,remote: :true, class: "btn btn-primary" %></p>
+      </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
-<% end %>

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # get '/families/sign_out' => 'devise/sessions#destroy'
   get '/users', to: 'users#index'
   
-  resources :users, only: [:create, :destroy]
+  resources :users, only: [:create, :destroy, :edit, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

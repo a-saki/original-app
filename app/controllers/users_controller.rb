@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:edit, :update]
+  
   # 各actionのあとに呼ばれるjsはアクション名.js.erb
   def index
+    # ▼newするときは外部キー紐付けなくていい。createでひも付けていればOK
     @user = User.new
+    # ▼一覧表示用
     @users = current_family.users
   end
   
   def create
+    # ▼newだと外部キーを手動で入れないといけないので、自動的に設定してくれるbuildで書くこと
     @user = current_family.users.build(user_params)
     if @user.save
 
@@ -21,29 +26,34 @@ class UsersController < ApplicationController
     # DBから家族を削除して、また一覧を表示
     @user = User.find(params[:id])
     @user.destroy
-    # ▼ログインしてる家族一覧の取得
+    # ▼削除した後もログインしてる家族一覧を表示するので
     @users = current_family.users
   end
-
-  def result
-    @users = current_family.users.all
+  
+  def edit
+    # @user = User.find(params[:id])
   end
   
-  def ajax_action
-    if params[:ajax_handler] == 'handle_name1'
-      # Ajaxの処理
-      @users = current_family.users.all
-      if @users.size > 0
-        render
-      else
-        render json: 'no data'
-      end
+  def update
+         # ▼ログインしてる家族一覧の取得
+    @users = current_family.users
+    if @user.update(user_params)
+      # redirect_to users_path
+    else
+      render "users/edit"
     end
+
   end
-  
+
+
   private 
   
   def user_params
-    params.require(:user).permit(:name, :age, :gender)
+    params.require(:user).permit(:name, :age, :gender, :relationship)
   end
+  
+  def set_user
+    @user = User.find(params[:id])
+  end
+  
 end
